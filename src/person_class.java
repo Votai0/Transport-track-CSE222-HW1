@@ -1,10 +1,10 @@
 public class person_class {
-/**Variables
- *  name: name of the person
- * surname: surname of the person
- * address: address of the person
- * phone: phone number of the person
- * ID: ID of the person
+/**
+ * @param name is the name of the person
+ * @param surname is the surname of the person
+ * @param address is the address of the person
+ * @param phone is the phone number of the person
+ * @param ID is the ID of the person
  */
     protected String name;
     protected String surname;
@@ -12,10 +12,7 @@ public class person_class {
     protected String phone;
     protected int ID;
 
-    /**
-     * Constructor
-     * 
-     */
+    //constructor for person class
     public person_class(String name, String surname, String address, String phone, int ID) {
         this.name = name;
         this.surname = surname;
@@ -25,7 +22,7 @@ public class person_class {
     }
 
     /**
-     * get and set methods for the variables
+     * get and set methods for the parameters
      */
     public int getID() {
         return ID;

@@ -1,26 +1,22 @@
 public class operator_class extends person_class {
     /**
-     * Variables
-     * 
+     * @param wage: wage of the operator
+     * @param customer: list of the customers
      */
     protected int wage;
     protected customer_class[] customer;
 
-    /**
-     * constructor
-     */
+    //constructor for the operator class
     public operator_class(String name, String surname, String address, String phone, int ID, int wage, customer_class[] customer) {
         super(name, surname, address, phone, ID);
         this.wage = wage;
-        //if customer is empty dont assign
+        // if customer is empty dont assign
         if(customer!=null){
             this.customer = customer;
         }
     }
     
-    /**
-     * get and set methods for the variables
-     */
+    //getters and setters
     public int getWage() {
         return wage;
     }
@@ -37,6 +33,9 @@ public class operator_class extends person_class {
 
     /**
      * methods
+     * @method print_customers: prints the customers of the operator
+     * @method print_operator: prints the operator details
+     * @method define_customers: defines the customers of the operator
      */
     public void print_customers(){
         if (customer.length == 0) {
@@ -70,6 +69,15 @@ public class operator_class extends person_class {
         print_customers();
     }
 
+    /*
+     * @method define_customers: defines the customers of the operator
+     * HOW THIS METHOD WORKS:
+     * 1. First, count the number of non-null customers with an operator ID
+     * 2. Create a new array with the size of the counted customers
+     * 3. Add the relevant customers to the new array
+     * 4. Assign the updated customer list
+     * @param customer: list of the customers
+     */
     public void define_customers(customer_class[] customer){
         if (customer != null) {
             int customer_count = 0;

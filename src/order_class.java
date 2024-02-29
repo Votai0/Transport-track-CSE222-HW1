@@ -1,11 +1,10 @@
 public class order_class {
     /**
-     * Variables
-     * product_name: name of the product
-     * count: count of the product
-     * total_price: total price of the product
-     * status: status of the order
-     * costumer_ID: ID of the costumer
+     * @param product_name: name of the product
+     * @param count: number of the product
+     * @param total_price: total price of the product
+     * @param status: status of the order
+     * @param costumer_ID: ID of the costumer
      */
     protected String product_name;
     protected int count;
@@ -13,9 +12,7 @@ public class order_class {
     protected int status;
     protected int costumer_ID;
 
-    /**
-     * Constructor
-     */
+    //constructor for the order class
     public order_class(String product_name, int count, int total_price, int status, int costumer_ID) {
         this.product_name = product_name;
         this.count = count;
@@ -24,9 +21,7 @@ public class order_class {
         this.costumer_ID = costumer_ID;
     }
 
-    /**
-     * get and set methods for the variables
-     */
+    //getters and setters
     public int getCostumer_ID() {
         return costumer_ID;
     }
@@ -60,12 +55,8 @@ public class order_class {
 
 
     /**
-     * methods
-     * printing style:Order #1 => Product name: tv - Count: 2 - Total price: 2000 - Status: Initialized.
-     * 0 Initialized
-1 Processing
-2 Completed
-3 Cancelled
+     * @method print_order: prints the order details
+     * 1=Initialized, 2=Processing, 3=Completed, 4=Cancelled
      */
     
     public void print_order(){

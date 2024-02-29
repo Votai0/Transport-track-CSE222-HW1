@@ -1,16 +1,13 @@
 public class customer_class extends person_class {
 
     /**
-     * Variables
-     * operator_ID: ID of the operator
-     * order array: array of the orders
+     * @param operator_ID: ID of the operator
+     * @param order_array: list of the orders
      */
     protected int operator_ID;
     protected order_class[] order_array;
 
-    /**
-     * Constructor
-     */
+    // constructor for the customer class
     public customer_class(String name, String surname, String address, String phone, int ID, int operator_ID, order_class[] order_array) {
         super(name, surname, address, phone, ID);
         this.operator_ID = operator_ID;
@@ -21,9 +18,7 @@ public class customer_class extends person_class {
         }   
     }
 
-    /**
-     * get and set methods for the variables
-     */
+    // getters and setters
     public int getOperator_ID() {
         return operator_ID;
     }
@@ -38,7 +33,10 @@ public class customer_class extends person_class {
     }
 
     /**
-     * methods
+     * Methods
+     * @method print_orders: prints the orders of the customer
+     * @method print_customer: prints the customer details
+     * @method define_orders: defines the orders of the customer
      */
 
     public void print_orders(){
@@ -63,6 +61,16 @@ public class customer_class extends person_class {
         
     }
 
+
+    /**
+     * @method define_orders: defines the orders of the customer
+     * @param order_array : list of the orders
+     * HOW THIS METHOD WORKS:
+     * 1. First, count the number of orders that are not null and have the customer ID
+     * 2. Create a new array to hold the orders of the customer
+     * 3. Add the relevant orders to the new array
+     * 4. Assign the updated order list
+     */
     public void define_orders(order_class[] order_array) {
         if (order_array != null) {
             int order_count = 0;
@@ -85,10 +93,7 @@ public class customer_class extends person_class {
                 }
             }
     
-            // Güncellenmiş sipariş listesini atama
-            // Bu satırda belirttiğiniz 'this.order_array' yerine, bu değişkenin adını 'customer_class' içinde tanımlı olan sipariş dizisine göre düzeltmeniz gerekebilir.
-            // Örneğin, eğer 'customer_class' içinde siparişleri tutan dizi 'orders' adında ise, 'this.orders = customer_orders;' şeklinde olmalıdır.
-            this.order_array = customer_orders; // Örnek: this.orders = customer_orders;
+            this.order_array = customer_orders; 
         }
     }
     

@@ -1,21 +1,16 @@
 public class corporateCustomer_class extends customer_class{
     /**
-     * Variables
-     * company_name: name of the company
+     * @param company_name is the name of the company
      */
     protected String company_name;
 
-    /**
-     * Constructor
-     */
+    //constructor for corporate customer
     public corporateCustomer_class(String name, String surname, String address, String phone, int ID, int operator_ID, order_class[] order_array, String company_name) {
         super(name, surname, address, phone, ID, operator_ID, order_array);
         this.company_name = company_name;
     }
 
-    /**
-     * get and set methods for the variables
-     */
+    //get and set methods for the company name
     public String getCompany_name() {
         return company_name;
     }
@@ -23,9 +18,7 @@ public class corporateCustomer_class extends customer_class{
         this.company_name = company_name;
     }
 
-    /**
-     * methods
-     */
+    //print method of corporate customer
     public void print_corporate_customer(){
         System.out.println("*** Corporate Customer Screen ***\n" + //
                         "----------------------------");
