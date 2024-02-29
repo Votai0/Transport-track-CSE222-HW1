@@ -33,6 +33,7 @@ public class App {
 
         // TODO: dosyadaki okunan satırda eksik veri varsa atama yapma
         // TODO: aynı id ile kimse olamaz
+        // salam
         while (fileScanner.hasNextLine()) {
             String satir = fileScanner.nextLine();
             String[] parcalanmisSatir = satir.split(";"); // ";" ile parçala
