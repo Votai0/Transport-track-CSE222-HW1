@@ -9,21 +9,20 @@ public class App {
      * @return 1 if the object is valid, 0 if the object is not valid
     */
     public static int object_control(String[] parcalanmisSatir,int [] ID_list){
+        String intMaxValue=String.valueOf(Integer.MAX_VALUE);
         for(int i=0; i<parcalanmisSatir.length; i++){
             // this if controls the empty string
             if(parcalanmisSatir[i].equals("")){
                 return 0;
             }
             // this if and else-if controls the integer values for they are out of range or negative
-            else
             if (parcalanmisSatir[0]=="order" && (i==5 || i==4 || i==3 || i==2) ) {
-                if (Integer.parseInt(parcalanmisSatir[i])<=Integer.MAX_VALUE && Integer.parseInt(parcalanmisSatir[i])>0) {
+                if (Integer.parseInt(parcalanmisSatir[i])<0) {
                     return 0;
-                    
                 }
             }
             else if (parcalanmisSatir[0]!="order" && (i==6 || i==5) ) {
-                if (Integer.parseInt(parcalanmisSatir[i])<=Integer.MAX_VALUE && Integer.parseInt(parcalanmisSatir[i])>0) {
+                if (Integer.parseInt(parcalanmisSatir[i])<0) {
                     return 0;
                 }
             }
@@ -41,7 +40,7 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         // open file and read
-        File file = new File("/workspaces/customer_tracking/src/content.txt");
+        File file = new File("content.txt");
         Scanner fileScanner = new Scanner(file); // Scanner nesnesi oluştur
 
         /**
@@ -85,29 +84,33 @@ public class App {
         while (fileScanner.hasNextLine()) {
             String satir = fileScanner.nextLine();
             String[] parcalanmisSatir = satir.split(";"); // ";" ile parçala
-            if(parcalanmisSatir[0].equals("operator") && parcalanmisSatir.length==7 && object_control(parcalanmisSatir,id_control)==1){ 
-                operator[operator_count] = new operator_class(parcalanmisSatir[1], parcalanmisSatir[2], parcalanmisSatir[3], parcalanmisSatir[4], Integer.parseInt(parcalanmisSatir[5]), Integer.parseInt(parcalanmisSatir[6]), null);
-                operator_count++;
-                id_control[id_control_count] = Integer.parseInt(parcalanmisSatir[5]);
-                id_control_count++;
-
-            }
-            else if(parcalanmisSatir[0].equals("corporate_customer") && parcalanmisSatir.length==8 && object_control(parcalanmisSatir,id_control)==1){
-                customers[customer_count] = new corporateCustomer_class(parcalanmisSatir[1], parcalanmisSatir[2], parcalanmisSatir[3], parcalanmisSatir[4], Integer.parseInt(parcalanmisSatir[5]), Integer.parseInt(parcalanmisSatir[6]), null, parcalanmisSatir[7]);
-                customer_count++;
-                id_control[id_control_count] = Integer.parseInt(parcalanmisSatir[5]);
-                id_control_count++;
-            }
-            else if(parcalanmisSatir[0].equals("retail_customer") && parcalanmisSatir.length==7 && object_control(parcalanmisSatir,id_control)==1){
-                customers[customer_count] = new retailCustomer_class(parcalanmisSatir[1], parcalanmisSatir[2], parcalanmisSatir[3], parcalanmisSatir[4], Integer.parseInt(parcalanmisSatir[5]), Integer.parseInt(parcalanmisSatir[6]), null);
-                customer_count++;
-                id_control[id_control_count] = Integer.parseInt(parcalanmisSatir[5]);
-                id_control_count++;
-
-            }
-            else if(parcalanmisSatir[0].equals("order") && parcalanmisSatir.length==6 && object_control(parcalanmisSatir,id_control)==1){
-                order[order_count] = new order_class(parcalanmisSatir[1], Integer.parseInt(parcalanmisSatir[2]), Integer.parseInt(parcalanmisSatir[3]), Integer.parseInt(parcalanmisSatir[4]), Integer.parseInt(parcalanmisSatir[5]));
-                order_count++;
+            try {
+                if(parcalanmisSatir[0].equals("operator") && parcalanmisSatir.length==7 && object_control(parcalanmisSatir,id_control)==1){ 
+                    operator[operator_count] = new operator_class(parcalanmisSatir[1], parcalanmisSatir[2], parcalanmisSatir[3], parcalanmisSatir[4], Integer.parseInt(parcalanmisSatir[5]), Integer.parseInt(parcalanmisSatir[6]), null);
+                    operator_count++;
+                    id_control[id_control_count] = Integer.parseInt(parcalanmisSatir[5]);
+                    id_control_count++;
+    
+                }
+                else if(parcalanmisSatir[0].equals("corporate_customer") && parcalanmisSatir.length==8 && object_control(parcalanmisSatir,id_control)==1){
+                    customers[customer_count] = new corporateCustomer_class(parcalanmisSatir[1], parcalanmisSatir[2], parcalanmisSatir[3], parcalanmisSatir[4], Integer.parseInt(parcalanmisSatir[5]), Integer.parseInt(parcalanmisSatir[6]), null, parcalanmisSatir[7]);
+                    customer_count++;
+                    id_control[id_control_count] = Integer.parseInt(parcalanmisSatir[5]);
+                    id_control_count++;
+                }
+                else if(parcalanmisSatir[0].equals("retail_customer") && parcalanmisSatir.length==7 && object_control(parcalanmisSatir,id_control)==1){
+                    customers[customer_count] = new retailCustomer_class(parcalanmisSatir[1], parcalanmisSatir[2], parcalanmisSatir[3], parcalanmisSatir[4], Integer.parseInt(parcalanmisSatir[5]), Integer.parseInt(parcalanmisSatir[6]), null);
+                    customer_count++;
+                    id_control[id_control_count] = Integer.parseInt(parcalanmisSatir[5]);
+                    id_control_count++;
+    
+                }
+                else if(parcalanmisSatir[0].equals("order") && parcalanmisSatir.length==6 && object_control(parcalanmisSatir,id_control)==1){
+                    order[order_count] = new order_class(parcalanmisSatir[1], Integer.parseInt(parcalanmisSatir[2]), Integer.parseInt(parcalanmisSatir[3]), Integer.parseInt(parcalanmisSatir[4]), Integer.parseInt(parcalanmisSatir[5]));
+                    order_count++;
+                }
+            } catch (Exception e) {
+                System.out.println("An error occurred while reading the file. Please check the file and try again.");
             }
         }
         fileScanner.close(); // Scanner nesnesini kapat
