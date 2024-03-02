@@ -9,7 +9,6 @@ public class App {
      * @return 1 if the object is valid, 0 if the object is not valid
     */
     public static int object_control(String[] parcalanmisSatir,int [] ID_list){
-        String intMaxValue=String.valueOf(Integer.MAX_VALUE);
         for(int i=0; i<parcalanmisSatir.length; i++){
             // this if controls the empty string
             if(parcalanmisSatir[i].equals("")){
@@ -110,7 +109,7 @@ public class App {
                     order_count++;
                 }
             } catch (Exception e) {
-                System.out.println("An error occurred while reading the file. Please check the file and try again.");
+                
             }
         }
         fileScanner.close(); // Scanner nesnesini kapat
@@ -133,7 +132,13 @@ public class App {
         Scanner kullaniciGirdisiScanner = new Scanner(System.in); // Kullanıcıdan girdi almak için Scanner nesnesi oluştur
         System.out.println("Please enter your ID...");
         String kullaniciGirdisi = kullaniciGirdisiScanner.nextLine(); // Kullanıcıdan girdi al
-        
+        try{
+            Integer.parseInt(kullaniciGirdisi);
+        }        
+        catch (Exception e) {
+            System.out.println("Invalid ID. Please try again.");
+            System.exit(0);
+        }
         /*
          * This for loop is for the find the user input ID in the arrays and print the user's information
          */
