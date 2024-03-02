@@ -1,2 +1,6 @@
 /.DS_Store
 /.vscode
+.devcontainer/devcontainer.json
+.github/dependabot.yml
+/.devcontainer
+/.github
