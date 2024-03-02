@@ -41,7 +41,7 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         // open file and read
-        File file = new File("/workspaces/customer_tracking/src/content.txt");
+        File file = new File("/workspaces/Transport-track-CSE222-HW1/src/content.txt");
         Scanner fileScanner = new Scanner(file); // Scanner nesnesi oluştur
 
         /**

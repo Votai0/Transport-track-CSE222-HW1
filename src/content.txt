@@ -1,4 +1,4 @@
-order;tv;2;2000;0;1500
+order;tv;2;2000;0
 retail_customer;yakup;genc;kocaeli;+902626052201;1500;2147483648
 operator;gokhan;kaya;istanbul;+902626050004;500;2147483648
 order;tv;2;2000;0;1500
