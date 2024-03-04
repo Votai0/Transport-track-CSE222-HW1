@@ -48,10 +48,10 @@ public class operator_class extends person_class {
                 System.out.println("----------------------------");
                 System.out.print("Customer #"+(i+1));
                 if (customer[i] instanceof retailCustomer_class) {
-                    System.out.println(" (a retail customera)");
+                    System.out.println(" (a retail customer)");
                 }
                 else if (customer[i] instanceof corporateCustomer_class) {
-                    System.out.println(" (a corporate customera)");
+                    System.out.println(" (a corporate customer)");
                 }
                 customer[i].print_customer();
                 
