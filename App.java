@@ -84,6 +84,7 @@ public class App {
             String satir = fileScanner.nextLine();
             String[] parcalanmisSatir = satir.split(";"); // ";" ile parçala
             try {
+                // this if and else if's checks the object type and length of object and the object_control function
                 if(parcalanmisSatir[0].equals("operator") && parcalanmisSatir.length==7 && object_control(parcalanmisSatir,id_control)==1){ 
                     operator[operator_count] = new operator_class(parcalanmisSatir[1], parcalanmisSatir[2], parcalanmisSatir[3], parcalanmisSatir[4], Integer.parseInt(parcalanmisSatir[5]), Integer.parseInt(parcalanmisSatir[6]), null);
                     operator_count++;
@@ -104,7 +105,8 @@ public class App {
                     id_control_count++;
     
                 }
-                else if(parcalanmisSatir[0].equals("order") && parcalanmisSatir.length==6 && object_control(parcalanmisSatir,id_control)==1){
+                // this else if checks the same things except order count
+                else if(parcalanmisSatir[0].equals("order") && parcalanmisSatir.length==6 && object_control(parcalanmisSatir,id_control)==1 && parcalanmisSatir[2].compareTo("0")!=0){
                     order[order_count] = new order_class(parcalanmisSatir[1], Integer.parseInt(parcalanmisSatir[2]), Integer.parseInt(parcalanmisSatir[3]), Integer.parseInt(parcalanmisSatir[4]), Integer.parseInt(parcalanmisSatir[5]));
                     order_count++;
                 }
